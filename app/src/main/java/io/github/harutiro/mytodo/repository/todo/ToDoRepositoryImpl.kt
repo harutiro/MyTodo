@@ -4,8 +4,11 @@ import io.github.harutiro.mytodo.model.todo.ToDo
 import io.github.harutiro.mytodo.model.todo.ToDoDAO
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import javax.inject.Inject
 
-class ToDoRepositoryImpl(private val dao:ToDoDAO):ToDoRepository {
+class ToDoRepositoryImpl @Inject constructor(
+    private val dao:ToDoDAO
+):ToDoRepository {
 
     override suspend fun create(title: String, detail: String) {
         val now = System.currentTimeMillis()
